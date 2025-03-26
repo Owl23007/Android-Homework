@@ -7,7 +7,7 @@
 
 ## 📱 课程作业一：Time Clock 数字时钟
 
-![App Screenshot](screenshots/demo.png)
+![App Screenshot](screenshots/demo-1.png)
 
 一个功能完善的数字时钟应用，实现了：
 - 实时时间显示（时分秒）
@@ -41,15 +41,16 @@
 ## 📦 项目结构
 
 ```
-/android-learning/
-├── TimeClock/          # 数字时钟项目
-│   ├── app/
-│   ├── screenshots/
-│   └── README.md
-├── docs/              # 学习笔记
+/AndroidHomework/
+├── Time/          # 数字时钟项目
+├──UIdemo/         # 前方施工中...
+├── screenShoots/  # 项目截图
+├── docs/          # 学习笔记
 └── ...
 ```
 
+
+
 欢迎关注我的学习历程，也欢迎提出建议！✨
 
-[![GitHub stars](https://img.shields.io/github/stars/Owl23007/android-learning?style=social)](https://github.com/Owl23007/Android-Homework)
+[![GitHub stars](https://img.shields.io/android-learning?style=social)](https://github.com/Owl23007/Android-Homework)
