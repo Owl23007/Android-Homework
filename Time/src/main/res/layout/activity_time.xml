@@ -5,20 +5,18 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-
     <TextView
         android:id="@+id/timeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="75dp"
+        android:layout_width="204dp"
+        android:layout_height="68dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="154dp"
         android:text="12:00:00"
         android:textColor="@color/white"
         android:textSize="72sp"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
@@ -29,7 +27,6 @@
         android:text="2024年5月1日"
         android:textColor="@color/white"
         android:textSize="24sp" />
-
     <TextView
         android:id="@+id/weekdayTextView"
         android:layout_width="wrap_content"

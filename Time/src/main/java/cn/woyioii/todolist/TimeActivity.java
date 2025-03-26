@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -56,7 +54,7 @@ public class TimeActivity extends AppCompatActivity {
         weekdayTextView = findViewById(R.id.weekdayTextView);
         backgroundLayout = findViewById(R.id.clock_background);
 
-        // 设置数字字体到所有文本视图
+        // 设置数字字体
         Typeface digitalFont;
 
         try {
@@ -74,7 +72,7 @@ public class TimeActivity extends AppCompatActivity {
             public void run() {
                 runOnUiThread(() -> updateClock());
             }
-        }, 0, 1000); // 每秒更新一次
+        }, 0, 10000); // 每10秒更新一次
     }
 
     private void updateClock() {
