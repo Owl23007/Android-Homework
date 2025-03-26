@@ -5,7 +5,7 @@
 
 这个仓库记录了我的Android原生开发学习历程，包含课程作业、练习项目和自学案例。
 
-## 📱 当前项目：Time Clock 数字时钟
+## 📱 课程作业一：Time Clock 数字时钟
 
 ![App Screenshot](screenshots/demo.png)
 
