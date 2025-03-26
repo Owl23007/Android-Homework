@@ -7,7 +7,7 @@
 
 ## 📱 课程作业一：Time Clock 数字时钟
 
-![App Screenshot](screenshoots/demo-1.png){:height="50%" width="50%"}
+![App Screenshot](screenshoots/demo-1.png)
 
 一个功能完善的数字时钟应用，实现了：
 - 实时时间显示（时分秒）
