@@ -53,4 +53,5 @@
 
 欢迎关注我的学习历程，也欢迎提出建议！✨
 
-[![GitHub stars](https://img.shields.io/android-learning?style=social)](https://github.com/Owl23007/Android-Homework)
+![Static Badge](https://img.shields.io/badge/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0)
+(https://github.com/Owl23007/Android-Homework)
