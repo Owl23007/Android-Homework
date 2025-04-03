@@ -11,7 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Time" />
-            <option value="$PROJECT_DIR$/UIDemo" />
+            <option value="$PROJECT_DIR$/contentproviderDemo" />
+            <option value="$PROJECT_DIR$/intentdemo" />
           </set>
         </option>
       </GradleProjectSettings>

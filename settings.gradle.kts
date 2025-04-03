@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "ToDoList"
 include(":Time")
-include(":UIDemo")
+include(":contentproviderDemo")
+include(":intentdemo")
