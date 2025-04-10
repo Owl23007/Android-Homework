@@ -4,10 +4,20 @@
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
 这个仓库记录了我的Android原生开发学习历程，包含课程作业、练习项目和自学案例。
+## 📦 项目结构
+
+```
+/AndroidHomework/
+├── Time/          # 数字时钟项目
+├── UIdemo/        # 前方施工中...
+├── screenShoots/  # 项目截图
+├── docs/          # 学习笔记
+└── ...
+```
 
 ## 📱 课程作业一：Time Clock 数字时钟
 
-![App Screenshot](screenshots/demo-1.png)
+![App Screenshot](screenshoots/demo-1.png)
 
 一个功能完善的数字时钟应用，实现了：
 - 实时时间显示（时分秒）
@@ -38,15 +48,5 @@
 
 这个仓库将持续更新我的Android学习进度，感谢大家的指导！
 
-## 📦 项目结构
-
-```
-/AndroidHomework/
-├── Time/          # 数字时钟项目
-├──UIdemo/         # 前方施工中...
-├── screenShoots/  # 项目截图
-├── docs/          # 学习笔记
-└── ...
-```
 
 欢迎关注我的学习历程，也欢迎提出建议！✨
