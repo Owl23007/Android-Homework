@@ -10,9 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/News" />
             <option value="$PROJECT_DIR$/Time" />
             <option value="$PROJECT_DIR$/contentproviderDemo" />
+            <option value="$PROJECT_DIR$/fragmentdemo" />
             <option value="$PROJECT_DIR$/intentdemo" />
+            <option value="$PROJECT_DIR$/servicedemo" />
           </set>
         </option>
       </GradleProjectSettings>

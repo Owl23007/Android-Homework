@@ -1,15 +1,44 @@
+# 构建文件
+/build/
+*.apk
+*.aab
+*.keystore
+
+# Gradle 文件
+.gradle/
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.ipr
+*.iws
+
+# 本地配置文件
 local.properties
+
+# 缓存文件
+.cache/
+*.log
+
+# 依赖库
+*.jar
+*.aar
+*.so
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 测试相关
+/test-output/
+/coverage/
+
+# 其他
+*.swp
+*.bak
+*.tmp
+
+# 排除所有模块的 test 目录
+**/test/
+
+# 排除所有模块的 androidTest 目录
+**/androidTest/
+

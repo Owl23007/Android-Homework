@@ -23,3 +23,6 @@ rootProject.name = "ToDoList"
 include(":Time")
 include(":contentproviderDemo")
 include(":intentdemo")
+include(":fragmentdemo")
+include(":servicedemo")
+include(":News")

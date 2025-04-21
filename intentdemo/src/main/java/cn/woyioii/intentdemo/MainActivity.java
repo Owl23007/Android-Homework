@@ -1,7 +1,5 @@
 package cn.woyioii.intentdemo;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -15,9 +13,7 @@ import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
@@ -120,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     //延迟Intent
     //通知的LargeIcon
     // (1) 创建权限申请的启动器
-    private final ActivityResultLauncher permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
+    private final ActivityResultLauncher<String> permissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
                 @Override
                 public void onActivityResult(Boolean result) {
                     if (result) {    // true表示申请成功
