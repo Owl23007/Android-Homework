@@ -14,11 +14,19 @@ import cn.woyioii.news.Pojo.NewsItem;
 import cn.woyioii.news.R;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
-
     private List<NewsItem> newsItems;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(NewsItem newsItem);
+    }
 
     public NewsAdapter(List<NewsItem> newsItems) {
         this.newsItems = newsItems;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,8 +39,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         NewsItem newsItem = newsItems.get(position);
-        holder.titleTextView.setText(newsItem.getTitle());
-        holder.descriptionTextView.setText(newsItem.getDescription());
+        holder.bind(newsItem);
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(newsItem);
+            }
+        });
     }
 
     @Override
@@ -40,14 +53,21 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         return newsItems.size();
     }
 
-    public static class NewsViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView;
-        TextView descriptionTextView;
+    static class NewsViewHolder extends RecyclerView.ViewHolder {
+        private TextView titleTextView;
+        private TextView descriptionTextView;
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
+            // 确保这里的 id 与布局文件中的 id 一致
             titleTextView = itemView.findViewById(R.id.title);
             descriptionTextView = itemView.findViewById(R.id.description);
         }
+
+        public void bind(NewsItem newsItem) {
+            titleTextView.setText(newsItem.getTitle());
+            descriptionTextView.setText(newsItem.getDescription());
+        }
     }
+
 }

@@ -19,6 +19,7 @@ import cn.woyioii.news.Pojo.NewsItem;
 import cn.woyioii.news.R;
 
 public class NewsFragment extends Fragment {
+    private boolean isTabletMode;
 
     private RecyclerView recyclerView; // RecyclerView 用于显示新闻列表
     private NewsAdapter adapter; // 适配器用于绑定数据
@@ -27,23 +28,40 @@ public class NewsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // 加载布局文件
         View view = inflater.inflate(R.layout.fragment_news, container, false);
 
-        // 初始化 RecyclerView
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // 初始化新闻数据
+
+        // 检测是否为平板模式
+        isTabletMode = getResources().getBoolean(R.bool.isTablet);
+
+
         newsItems = new ArrayList<>();
-        // 添加示例数据
         newsItems.add(new NewsItem("新闻标题 1", "这是新闻描述 1"));
         newsItems.add(new NewsItem("新闻标题 2", "这是新闻描述 2"));
         newsItems.add(new NewsItem("新闻标题 3", "这是新闻描述 3"));
 
-        // 初始化适配器并绑定数据
         adapter = new NewsAdapter(newsItems);
         recyclerView.setAdapter(adapter);
+
+        // 设置点击事件
+        adapter.setOnItemClickListener(newsItem -> {
+            // 处理点击事件，例如跳转到详情页面
+            DetailFragment detailFragment = DetailFragment.newInstance(newsItem.getTitle(), newsItem.getDescription());
+            if(!isTabletMode){
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, detailFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }else{
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.news_detail_container, detailFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         return view;
     }
