@@ -59,14 +59,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
         public NewsViewHolder(@NonNull View itemView) {
             super(itemView);
-            // 确保这里的 id 与布局文件中的 id 一致
             titleTextView = itemView.findViewById(R.id.title);
             descriptionTextView = itemView.findViewById(R.id.description);
         }
 
         public void bind(NewsItem newsItem) {
             titleTextView.setText(newsItem.getTitle());
-            descriptionTextView.setText(newsItem.getDescription());
+
+            // 截取前25个字符
+            String description = newsItem.getDescription();
+            if (description.length() > 25) {
+                description = description.substring(0, 25) + "..."; // 添加省略号表示截断
+            }
+            descriptionTextView.setText(description);
         }
     }
 
