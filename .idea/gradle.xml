@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/contentproviderDemo" />
             <option value="$PROJECT_DIR$/fragmentdemo" />
             <option value="$PROJECT_DIR$/intentdemo" />
+            <option value="$PROJECT_DIR$/musicplayer" />
             <option value="$PROJECT_DIR$/servicedemo" />
           </set>
         </option>

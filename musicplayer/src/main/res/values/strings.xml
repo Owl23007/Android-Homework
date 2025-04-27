@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Oii的音乐播放器</string>
+    <string name="search">搜索</string>
+    <string name="playlist">播放列表</string>
+    <string name="download">下载</string>
+    <string name="local">本地音乐</string>
+    <string name="setting">设置</string>
+    <string name="about">关于</string>
+    <string name="exit">退出</string>
+    <string name="search_hint">搜索音乐</string>
+    <string name="search_result">搜索结果</string>
+
+</resources>
