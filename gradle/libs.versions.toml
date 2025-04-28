@@ -13,6 +13,8 @@ lifecycleViewmodelKtx = "2.6.1"
 datastoreCoreAndroid = "1.1.4"
 jsoup = "1.19.1"
 viewbinding = "8.9.2"
+roomCompiler = "2.7.0"
+roomRuntime = "2.7.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -28,6 +30,8 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 datastore-core-android = { group = "androidx.datastore", name = "datastore-core-android", version.ref = "datastoreCoreAndroid" }
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 viewbinding = { group = "androidx.databinding", name = "viewbinding", version.ref = "viewbinding" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntime" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
