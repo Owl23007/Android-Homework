@@ -1,16 +1,31 @@
-package cn.woyioii.musicplayer.model;
+package cn.woyioii.musicplayer.entity;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+
+@Entity(tableName = "music")
 public class Music {
-    public String id;           // 歌曲ID
+    @NonNull
+    @PrimaryKey
+    public String musicId;           // 歌曲ID
+    @ColumnInfo
     public String title;        // 歌曲名
+    @ColumnInfo
     public String artist;       // 歌手名
+    @ColumnInfo
     public String album;        // 专辑名
+    @ColumnInfo
     public String duration;     // 时长
+    @ColumnInfo
     public String path;         // 本地路径或网络URL
+    @ColumnInfo
     public boolean isLocal;     // 是否为本地音乐
 
-    public Music(String id, String title, String artist,String album, String duration, String path) {
-        this.id = id;
+    public Music(String musicId, String title, String artist, String album, String duration, String path) {
+        this.musicId = musicId;
         this.title = title;
         this.artist = artist;
         this.album = album;
@@ -19,12 +34,12 @@ public class Music {
         this.isLocal = true;
     }
 
-    public String getId() {
-        return id;
+    public String getMusicId() {
+        return musicId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMusicId(String musicId) {
+        this.musicId = musicId;
     }
 
     public String getTitle() {

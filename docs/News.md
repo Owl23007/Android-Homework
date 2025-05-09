@@ -92,7 +92,7 @@
 
 ```java
 boolean isTabletMode = getResources().getBoolean(R.bool.isTablet);
-int containerId = isTabletMode ? R.id.news_list_container : R.id.fragment_container;
+int containerId = isTabletMode ? R.musicId.news_list_container : R.musicId.fragment_container;
 getSupportFragmentManager().beginTransaction()
     .replace(containerId, new NewsFragment())
     .commit();
@@ -110,7 +110,7 @@ recyclerView.setAdapter(adapter);
 
 adapter.setOnItemClickListener(newsItem -> {
     DetailFragment detailFragment = DetailFragment.newInstance(newsItem.getTitle(), newsItem.getDescription());
-    int containerId = isTabletMode ? R.id.news_detail_container : R.id.fragment_container;
+    int containerId = isTabletMode ? R.musicId.news_detail_container : R.musicId.fragment_container;
     getParentFragmentManager().beginTransaction()
         .replace(containerId, detailFragment)
         .addToBackStack(null)
@@ -154,8 +154,8 @@ public interface OnItemClickListener {
 
   ```xml
   <!-- res/layout-sw600dp/activity_main.xml 片段 -->
-  <androidx.fragment.app.FragmentContainerView android:id="@+id/news_list_container" ... />
-  <androidx.fragment.app.FragmentContainerView android:id="@+id/news_detail_container" ... />
+  <androidx.fragment.app.FragmentContainerView android:musicId="@+musicId/news_list_container" ... />
+  <androidx.fragment.app.FragmentContainerView android:musicId="@+musicId/news_detail_container" ... />
   ```
 
 ### 5.1 效果展示

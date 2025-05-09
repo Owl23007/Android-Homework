@@ -2,6 +2,7 @@ package cn.woyioii.musicplayer.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import cn.woyioii.musicplayer.R;
-import cn.woyioii.musicplayer.model.Music;
+import cn.woyioii.musicplayer.entity.Music;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
     private List<Music> musicList;
     private Context context;
+    private OnItemClickListener onItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(Music music, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
 
     public MusicAdapter(Context context, List<Music> musicList) {
         this.context = context;
@@ -44,8 +54,19 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
         holder.tvSubInfo.setText(subInfo);
 
         // 设置时长
-        String duration = formatDuration(Long.parseLong(music.getDuration()));
-        holder.tvDuration.setText(duration);
+        String duration = music.getDuration();
+        if (duration != null && !duration.isEmpty()) {
+            holder.tvDuration.setText(formatDuration(Long.parseLong(duration)));
+        } else {
+            holder.tvDuration.setText("--:--");
+        }
+
+        // 设置点击事件
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(music, holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override

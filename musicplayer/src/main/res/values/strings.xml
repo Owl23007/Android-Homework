@@ -9,5 +9,8 @@
     <string name="exit">退出</string>
     <string name="search_hint">搜索音乐</string>
     <string name="search_result">搜索结果</string>
-
+    <string name="import_local_music">导入本地音乐</string>
+    <string name="default_playlist">本地音乐</string>
+    <string name="import_success">成功导入 %d 首歌曲</string>
+    <string name="import_failed">导入失败: %s</string>
 </resources>

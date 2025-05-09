@@ -1,89 +1,86 @@
 package cn.woyioii.musicplayer.Fragment;
 
 import android.Manifest;
-import android.database.Cursor;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
-import java.util.ArrayList;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
 import java.util.List;
 
 import cn.woyioii.musicplayer.Adapter.MusicAdapter;
-import cn.woyioii.musicplayer.MainActivity;
 import cn.woyioii.musicplayer.R;
-import cn.woyioii.musicplayer.model.Music;
+import cn.woyioii.musicplayer.db.AppDatabase;
+import cn.woyioii.musicplayer.entity.Music;
+import cn.woyioii.musicplayer.service.MusicService;
 
-// LocalMusicFragment.java
 public class LocalMusicFragment extends Fragment {
-    private RecyclerView recyclerView;
-    private MusicAdapter adapter;
-    private List<Music> musicList = new ArrayList<>();
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
+    private AppDatabase db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_local, container, false);
-
-        // 先获取数据
-        musicList = getMusicList();
-
-        Log.d("MusicList", musicList.toString());
-
-        // 初始化 RecyclerView
-        recyclerView = view.findViewById(R.id.localMusicList);
-
-        // 先设置布局管理器
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
-        // 再设置适配器
-        adapter = new MusicAdapter(requireContext(), musicList);
-        recyclerView.setAdapter(adapter);
-
+        
+        // 初始化数据库
+        db = Room.databaseBuilder(requireContext(),
+                AppDatabase.class, "music-db").build();
+        
+        initViews(view);
+        setupViewPager();
         return view;
     }
 
-    public List<Music> getMusicList() {
-        List<Music> list = new ArrayList<Music>();
-        Cursor cursor = requireActivity().getContentResolver().query(
-                MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
-                null, null, null,
-                MediaStore.Audio.Media._ID + " DESC"
-        );
+    private void initViews(View view) {
+        viewPager = view.findViewById(R.id.viewPager);
+        tabLayout = view.findViewById(R.id.tabLayout);
+    }
 
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                //获取音乐的id、歌曲名、歌手名、文件全路径、时长(毫秒)
-                int id_index = cursor.getColumnIndex(MediaStore.Audio.Media._ID);
-                int title_index = cursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
-                int artist_index = cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
-                int album_index = cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM);
-                int path_index = cursor.getColumnIndex(MediaStore.Audio.Media.DATA);
-                int duration_index = cursor.getColumnIndex(MediaStore.Audio.Media.DURATION);
+    private void setupViewPager() {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(adapter);
+        
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    tab.setText(position == 0 ? "本地音乐" : "我的歌单");
+                }
+        ).attach();
+    }
 
-                String id = cursor.getString(id_index);
-                String title = cursor.getString(title_index);
-                String artist = cursor.getString(artist_index);
-                String album = cursor.getString(album_index);
-                String path = cursor.getString(path_index);
-                String duration = cursor.getString(duration_index);
-
-                Music music = new Music(id, title, artist, album, duration, path);
-                list.add(music);
-            } while (cursor.moveToNext());
-
-            cursor.close();
+    private static class ViewPagerAdapter extends FragmentStateAdapter {
+        public ViewPagerAdapter(@NonNull Fragment fragment) {
+            super(fragment);
         }
-        return list;
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            if (position == 0) {
+                return new LocalMusicListFragment();
+            } else {
+                return new PlaylistsFragment();
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return 2;
+        }
     }
 }

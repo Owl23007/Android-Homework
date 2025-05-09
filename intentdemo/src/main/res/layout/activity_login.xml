@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:musicId="@+musicId/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:musicId="@+musicId/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_dark"
@@ -21,7 +21,7 @@
         app:title="用户登录"
         app:titleTextColor="@color/white" />
     <ImageView
-        android:id="@+id/photo"
+        android:musicId="@+musicId/photo"
         android:layout_width="165dp"
         android:layout_height="177dp"
         android:layout_marginStart="16dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/login" />
     <TextView
-        android:id="@+id/textView1"
+        android:musicId="@+musicId/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -40,9 +40,9 @@
         android:text="手机号"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo" />
+        app:layout_constraintTop_toBottomOf="@+musicId/photo" />
     <EditText
-        android:id="@+id/phone"
+        android:musicId="@+musicId/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -51,10 +51,10 @@
         android:inputType="phone"
         android:maxLength="11"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView1"
-        app:layout_constraintStart_toEndOf="@+id/textView1" />
+        app:layout_constraintBaseline_toBaselineOf="@+musicId/textView1"
+        app:layout_constraintStart_toEndOf="@+musicId/textView1" />
     <TextView
-        android:id="@+id/textView2"
+        android:musicId="@+musicId/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -62,9 +62,9 @@
         android:text="密    码"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+musicId/textView1" />
     <EditText
-        android:id="@+id/password"
+        android:musicId="@+musicId/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -73,10 +73,10 @@
         android:inputType="textPassword"
         android:maxLength="10"
         android:textSize="24sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintBaseline_toBaselineOf="@+musicId/textView2"
+        app:layout_constraintStart_toEndOf="@+musicId/textView2" />
     <Button
-        android:id="@+id/login_btn"
+        android:musicId="@+musicId/login_btn"
         android:layout_width="379dp"
         android:layout_height="66dp"
         android:layout_marginStart="8dp"

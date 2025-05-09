@@ -6,23 +6,23 @@
 
     <!-- 双窗格主容器 -->
     <LinearLayout
-        android:id="@+id/main_content"
+        android:musicId="@+musicId/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation"
+        android:layout_above="@musicId/bottom_navigation"
         android:orientation="horizontal"
         android:baselineAligned="false">
 
         <!-- 新闻列表容器 -->
         <FrameLayout
-            android:id="@+id/news_list_container"
+            android:musicId="@+musicId/news_list_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4" />
 
         <!-- 新闻详情容器 -->
         <FrameLayout
-            android:id="@+id/news_detail_container"
+            android:musicId="@+musicId/news_detail_container"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6" />
@@ -30,7 +30,7 @@
 
     <!-- 底部导航栏 -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+        android:musicId="@+musicId/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

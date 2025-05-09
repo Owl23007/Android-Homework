@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/music_image"
+        android:musicId="@+musicId/music_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
     <TextView
-        android:id="@+id/music_title"
+        android:musicId="@+musicId/music_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,10 +25,10 @@
         android:text="音乐名称"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/music_image"
+        app:layout_constraintStart_toEndOf="@+musicId/music_image"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/music_duration"
+        android:musicId="@+musicId/music_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -38,29 +38,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/music_artist"
+        android:musicId="@+musicId/music_artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="歌手名"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/music_image"
-        app:layout_constraintTop_toBottomOf="@+id/music_title" />
+        app:layout_constraintStart_toEndOf="@+musicId/music_image"
+        app:layout_constraintTop_toBottomOf="@+musicId/music_title" />
     <TextView
-        android:id="@+id/music_id"
+        android:musicId="@+musicId/music_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:text="id"
+        android:text="musicId"
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/music_artist"
-        app:layout_constraintTop_toBottomOf="@+id/music_title" />
+        app:layout_constraintStart_toEndOf="@+musicId/music_artist"
+        app:layout_constraintTop_toBottomOf="@+musicId/music_title" />
     <TextView
-        android:id="@+id/music_data"
+        android:musicId="@+musicId/music_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
@@ -69,6 +69,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/music_id"
-        app:layout_constraintTop_toBottomOf="@+id/music_title" />
+        app:layout_constraintStart_toEndOf="@+musicId/music_id"
+        app:layout_constraintTop_toBottomOf="@+musicId/music_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>
